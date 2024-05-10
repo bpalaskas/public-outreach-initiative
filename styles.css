@@ -1,0 +1,209 @@
+/* General styles */
+body {
+    background-color: white;
+    color: black; /* For text */
+  }
+  
+  /* Section backgrounds */
+  #hero, #history, #clients, #contact {
+    background-color: white;
+    color: rgb(49, 48, 48); /* If text is present */
+  }
+ 
+  
+  /* Large Typography */
+  h1, h2, h3 {
+    font-size: 3em;
+    color: black;
+  }
+  
+  /* Accent colors */
+  .text-red {
+    color: rgb(188, 20, 191);
+  }
+  
+  .text-burnt-orange {
+    color: rgb(136, 7, 205); /* Hex for burnt orange */
+  }
+  
+  /* Background accent colors for buttons or selected areas */
+  .bg-red {
+    background-color: rgba(0, 234, 255, 0.312);
+  }
+  
+  .bg-burnt-orange {
+    background-color: #4700cc; /* Hex for burnt orange */
+  }
+
+  .bg-burnt-orange {
+    background-color: #4700cc; /* Hex for burnt orange */
+  }
+ 
+  
+  /* Bold colors */
+  .text-bold {
+    font-weight: bold;
+  }
+
+  .text-black {
+    color: black;
+  }
+  
+  /* Large and Blocky Text */
+  .blocky-text {
+    font-size: 5em; /* Adjust size as necessary */
+    font-weight: bold; /* Makes the text thick */
+    text-transform: uppercase; /* Makes the text all caps */
+    line-height: 0.8; /* Adjusts the spacing between lines */
+    letter-spacing: -2px; /* Pulls the letters closer together */
+    color: #1c1a1a;
+  }
+  .custom-col {
+    padding: 15px; /* Add padding around images */
+    margin-left: auto;
+    margin-right: 9vw;
+}
+
+/* Custom media query */
+@media (max-width: 349px) {
+    .custom-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+}
+.client-container {
+    position: relative;
+}
+
+.client-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.client-container:hover .client-name,
+.client-container.active .client-name {
+    opacity: 1;
+}
+
+hr {
+  height: 0px;
+  border-top: 6px rgb(202, 10, 19);
+  border-bottom: 6px rgb(205, 7, 37);
+  /* Set the hr color */
+  color: #660d81;  /* old IE */
+  background-color: rgb(205, 7, 7);  /* Modern Browsers */
+}
+.blocky-text-sm {
+    font-size: 1.2rem; /* Existing font-size */
+    word-wrap: break-word; /* Existing word-wrap */
+    font-weight: 700; /* Adding bolder weight */
+    text-transform: uppercase; /* Convert text to uppercase for a blocky feel */
+    letter-spacing: 1px; /* Add some spacing between letters */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .service-item {
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  
+  .service-item:last-child {
+    margin-right: 0;
+  }
+  
+  .custom-bullet {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .custom-bullet li::before {
+    content: '\2022';
+    color: rgb(217, 8, 8);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+  
+  .custom-bullet li:nth-child(even)::before {
+    color: rgb(221, 65, 4);
+  }
+  @media (max-width: 768px) {
+    .service-item {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+  
+  .bg-burnt-orange {
+    background-color: #000000;  /* Hex for burnt orange */
+    color: #fff8f8;                 /* White text */
+    font-weight: bold;           /* Bold text */
+    border-radius: 12px;         /* Rounded edges */
+    text-align: center;          /* Center text */
+    padding: 16px 32px;          /* Larger size */
+  }
+  
+  .flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  .card-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fffbfb;
+    justify-content: ce;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 85px; /* Adjust the fixed width of the image */
+    height: 85px; /* Adjust the fixed height of the image */
+    object-fit: contain; /* Ensure the entire image is displayed within the specified dimensions */
+    margin: 0 auto; /* Center the image horizontally */
+    display: block; /* Ensure block-level display */
+    margin-bottom: 10px; /* Adjust spacing between image and heading */
+  }
+  
+  .card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #fffbfb;
+  }
+  
+  /* Media Query for Responsive Design */
+  @media (max-width: 768px) {
+    .card {
+      width: calc(50% - 20px);
+    }
+  }

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PR Media Group</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand d-flex align-items-center" href="index.html#">
+            <img src="./assets/dove_branch_red_alpha.png" alt="Phoenix Rising Logo" width="45" height="45" class="d-inline-block align-top mr-2">
+            <b>Public Outreach Initiative</b>
+          </a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#">Our Mission</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="comingsoon.html#">Merch</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="./join.html">Join Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./donate.html#">Donate</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      
+  </nav>
+  <main>
+    <section id="hero" style="position: relative;">
+        <canvas id="animatedCanvas" style="position: relative; z-index: 1;"></canvas>
+        <div class="hero-text flex-center" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+          <h1 class="text-black blocky-text">Help Us Help Others</h1>
+          <p><br></p>
+          <b><p>Every little bit helps.  As an Oregon 501c(3) Corporation, donations to Public Outreach Initiatve Inc. are tax-deductible</b>
+          <br><p></p>
+          <a href="https://donate.stripe.com/dR67tZf9922d9t65kl" class="bg-burnt-orange">Donate Now</a>
+        </div>
+    </section>
+      
+      <hr class="thick-hr">
+
+      <p><br><br></p>
+      <section id="services" class="container">
+        <div class="row justify-content-center">
+            <p class="text-black blocky-text mb-5" style="justify-content: center;">How Do Donations Help Us?</p>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 service-item">
+                <h2 class="blocky-text-sm mb-3">Outreach</h2>
+                <ul class="custom-bullet">
+                    <li>Facilitate educational events and town halls</li>
+                                    <br>
+                    <li>
+                        Foster connections between christians and create opportunies for change and charity. 
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 service-item">
+                <h2 class="blocky-text-sm mb-3">Media</h2>
+                <ul class="custom-bullet">
+                   <li>
+                        Connecting Working-class people to media networks and platforms
+                        to inspire representation and transparency in government.
+                   </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </section> 
+        
+    
+    
+    <p><br><p><br></p><br></p>
+    <hr class="thick-hr">
+    <p><br><br></p>
+    <section id="services" class="container">
+        <div class="row justify-content-center">
+            <p class="text-black blocky-text mb-5">Donation Form</p>
+        </div>
+        <div class="row">
+           
+           <div style="justify-content: center;"></div>
+           <p>Click the button below to visit our secure donation portal. Powered by Stripe.</p>
+        </div>
+    </section>
+    
+    <p><br><br></p>
+    <hr>
+    <p><br><br></p>
+
+    <section id="clients" class="container">
+        <div class="row">
+          <a href="https://donate.stripe.com/dR67tZf9922d9t65kl" class="bg-burnt-orange">Donate Now</a>    </div>
+        
+    </section>
+    <br><br>
+    <hr>
+    <p><br><br></p>
+
+    
+          
+  </main>
+  <footer class="text-white text-center py-4" style="background-color: rgb(241, 0, 16); min-height:9px;max-height:12px;">
+    <p>Copyright Public Outreach Initiative Inc. - Oregon, USA</p>
+  </footer>
+  
+  <script>
+    window.addEventListener('scroll', function () {
+  const navbar = document.querySelector('.navbar');
+  if (window.pageYOffset > 0) {
+    navbar.classList.remove('bg-transparent');
+    navbar.classList.add('bg-light');
+  } else {
+    navbar.classList.remove('bg-light');
+    navbar.classList.add('bg-transparent');
+  }
+});
+const canvas = document.getElementById("animatedCanvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray;
+
+// Particle class
+class Particle {
+  constructor(x, y, directionX, directionY, size, color) {
+    this.x = x;
+    this.y = y;
+    this.directionX = directionX;
+    this.directionY = directionY;
+    this.size = size;
+    this.color = color;
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+  }
+
+  update() {
+    if (this.x + this.size > canvas.width || this.x - this.size < 0) {
+      this.directionX = -this.directionX;
+    }
+    if (this.y + this.size > canvas.height || this.y - this.size < 0) {
+      this.directionY = -this.directionY;
+    }
+    this.x += this.directionX;
+    this.y += this.directionY;
+    this.draw();
+  }
+}
+
+// Initialize particles
+function init() {
+  particlesArray = [];
+  let numberOfParticles = 80;
+
+  for (let i = 0; i < numberOfParticles; i++) {
+    let size = Math.random() * 5 + 1;
+    let x = Math.random() * (innerWidth - size * 2);
+    let y = Math.random() * (innerHeight - size * 2);
+    let directionX = (Math.random() * 0.4) - 0.2;
+    let directionY = (Math.random() * 0.4) - 0.2;
+    let color = randomColor();
+
+    particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+  }
+}
+
+// Random color generator from the specified shades
+function randomColor() {
+  const colors = ['red', 'blue', '#0096FF'];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+
+// Animate particles
+function animate() {
+  requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+  for (let i = 0; i < particlesArray.length; i++) {
+    particlesArray[i].update();
+  }
+}
+
+init();
+animate();
+
+$(document).ready(function(){
+    $(".client-container").on("click", function() {
+        $(this).toggleClass("active");
+    });
+});
+  </script>
+</body>
+</html>
